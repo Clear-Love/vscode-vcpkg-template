@@ -1,0 +1,32 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "cmake config",
+            "command": "cmake",
+            "args": [
+                "-S",
+                ".",
+                "-B",
+                "build", 
+                "-DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "cmake build debug",
+            "command": "cmake",
+            "args": ["--build","build", "--config", "Debug"]
+        },
+        {
+            "type": "shell",
+            "label": "build debug",
+            "dependsOn": [
+                "cmake config",
+                "cmake build debug"
+            ],
+            "dependsOrder": "sequence"
+        }
+    ],
+    "version": "2.0.0"
+}
