@@ -1,5 +1,5 @@
 # vscode-vcpkg-template
-vscode,C++项目模板
+vscode C++项目模板
 
 ## 安装vcpkg
 ```bash
@@ -7,6 +7,13 @@ git clone https://github.com/Microsoft/vcpkg.git
 cd vcpkg
 ./bootstrap-vcpkg.sh
 ./vcpkg integrate install
+
+# 添加环境变量
+export PATH=$PATH:/path/to/vcpkg
+# 或者创建软链接
+sudo ln -s /path/to/vcpkg/vcpkg /usr/bin/vcpkg
+export VCPKG_ROOT=/path/to/vcpkg
+
 ```
 
 ## 安装依赖
